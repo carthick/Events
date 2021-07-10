@@ -10,4 +10,4 @@ The Mostly used Events in Java Script are
   * onfocus
   * onChange
 
-I mostly discuss about first two that is onlick and onblur in this workflow.
+I try to briefly discuss about all the events in this workflow.
