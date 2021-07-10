@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      base: '',
+      height: '',
+      area:0
+    };
+  }
+  triangleArea = () => {
+    console.log(this.state.base)
+    console.log(this.state.height)
+    const area = 1/2*(this.state.base*this.state.height)
+    console.log(area)
+    this.setState({
+      area: area
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>
+         Area Of Triangle
+        </h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Enter the value of Base
+          <input type="number" onChange={e => this.setState({ base:e.target.value })}/>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <p>
+          Enter the value of Height 
+          <input type="number" onChange={e => this.setState({ height:e.target.value })}/>
+        </p>
+        <h3>{this.state.area}</h3>
+        <button onClick={this.triangleArea}>Get area</button>
+      </div>
+    );
+  }
 }
 
 export default App;
